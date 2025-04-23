@@ -33,9 +33,7 @@ func (s *AccountService) CreateAccount(input *dto.CreateAccountInput) (*dto.Acco
 		return nil, err
 	}
 
-	output := dto.FromAccount(account)
-
-	return output, nil
+	return dto.FromAccount(account), nil
 }
 
 // UpdateBalance atualiza o saldo de uma conta de forma thread-safe
@@ -51,8 +49,8 @@ func (s *AccountService) UpdateBalance(apiKey string, amount float64) (*dto.Acco
 	if err != nil {
 		return nil, err
 	}
-	output := dto.FromAccount(account)
-	return output, nil
+
+	return dto.FromAccount(account), nil
 }
 
 // FindByAPIKey busca uma conta pelo API Key
@@ -61,8 +59,8 @@ func (s *AccountService) FindByAPIKey(apiKey string) (*dto.AccountOutput, error)
 	if err != nil {
 		return nil, err
 	}
-	output := dto.FromAccount(account)
-	return output, nil
+
+	return dto.FromAccount(account), nil
 }
 
 // FindByID busca uma conta pelo ID
@@ -71,6 +69,6 @@ func (s *AccountService) FindByID(id string) (*dto.AccountOutput, error) {
 	if err != nil {
 		return nil, err
 	}
-	output := dto.FromAccount(account)
-	return output, nil
+
+	return dto.FromAccount(account), nil
 }
